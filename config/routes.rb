@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   #  root 'apis#index'
   #  post '/get_offers' => 'apis#get_offers'
   root 'offers#new'
-  resources :offers, only: [:new, :create, :show]
+  resources :offers, only: [:new, :create]
+  get '/offers' => 'offers#show'  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
