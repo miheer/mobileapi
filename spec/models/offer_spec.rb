@@ -1,5 +1,4 @@
 require 'rails_helper'
-#require 'offer'
 
 module Enumerable
   def sorted?
@@ -94,7 +93,6 @@ RSpec.describe Offer, type: :model do
       it "check length of pub0 attribute" do
         @offer = Offer.new(uid:"user1", pub0:"campaign111111111111111111111111111111", page:"1")
         @offer.valid?
-        puts "Offer===#{@offer.errors.messages[:uid]}"
         expect(@offer.errors.messages[:pub0]).to eq(["less than 30 if you don't mind"])
       end
  

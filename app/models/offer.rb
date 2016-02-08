@@ -32,14 +32,12 @@ class Offer
       url_sort = url_sort + "#{key}=#{value}&"
     end
     hash_key = Digest::SHA1.hexdigest( url_sort + API_KEY)
-    puts "URI=============#{URI.parse("#{SERVER_URI}?#{url_sort}hashkey=#{hash_key}")}"
     uri = URI.parse("#{SERVER_URI}?#{url_sort}hashkey=#{hash_key}")
   end  
 
   def get_response uri, gzip_params=nil
     Net::HTTP.start(uri.host, uri.port) do |http|
-      http.set_debug_output($stdout)
-      request = Net::HTTP::Get.new uri, gzip_params #{ "Accept-Encoding" => "gzip", "User-Agent" => "gzip" }
+      request = Net::HTTP::Get.new uri, gzip_params
       self.response = http.request request # Net::HTTPResponse object
     end
    
@@ -47,10 +45,9 @@ class Offer
       when Net::HTTPSuccess then 
         begin
           if self.response.header[ 'Content-Encoding' ].eql?( 'gzip' ) then
-            puts "In GZIP"
-            sio = StringIO.new( self.response.body )  #if Digest::SHA1.hexdigest(offer.response.body + API_KEY) == offer.response['x-sponsorpay-response-signature']
+            sio = StringIO.new( self.response.body ) 
             gz = Zlib::GzipReader.new( sio )
-            pg = gz.read() # if Digest::SHA1.hexdigest(pg + API_KEY) == offer.response['x-sponsorpay-response-signature']
+            pg = gz.read() 
 
             if genuine_response pg
               offers= JSON.parse(pg)#["offers"]
