@@ -1,0 +1,13 @@
+APPID='157'
+DEVICE_ID='2b6f0cc904d137be2e1730235f5664094b83'
+FORMAT='json'
+IP='109.235.143.113'
+LOCALE='de'
+OFFER_TYPES='112'
+#PAGE=2
+PS_TIME="#{Time.now.to_i}"
+#PUB0=campaign2
+TIMESTAMP="#{Time.now.to_i}"
+#UID=player1
+API_KEY='b07a12df7d52e6c118e5d47d3f9e60135b109a1f'
+SERVER_URI='http://api.fyber.com/feed/v1/offers.json'

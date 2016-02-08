@@ -1,0 +1,17 @@
+<h1>Listing Offers</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Thumnail in lowres</th>
+    <th>Payout</th>
+  </tr>
+ 
+  <% @offers.each do |offer| %>
+    <tr>
+      <td><%= offer["title"] %></td>
+      <td><%= offer["thumbnail"]["lowres"] %></td>
+      <td><%= offer["payout"] %></td>
+    </tr>
+  <% end %>
+</table> 

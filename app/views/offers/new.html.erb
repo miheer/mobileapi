@@ -1,0 +1,27 @@
+<%= render partial: "flash" %>
+  <% if @offer.errors.any? %>   
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@offer.errors.count, "error") %> prohibited
+        this parameters from being passed:
+      </h2>
+      <ul>
+        <% @offer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id = "new_form">
+<h1>Call Fyber Mobile API </h1>
+<%= form_for @offer, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+     <%= f.label :uid %> 
+     <%= f.text_field :uid %> 
+     <%= f.label :pub0 %>  
+     <%= f.text_field :pub0 %> 
+     <%= f.label :page %>
+     <%= f.text_field :page %> 
+     <%= f.submit "Submit Offer Parameters" %>
+<% end %>
+</div>
