@@ -18,7 +18,6 @@ class OffersController < ApplicationController
         render :show, :offers => @offers
       else
         flash[:notice] = nil     
-        puts "Ivalid" 
         flash[:alert] = "Invalid response got from server"
         render new_offer_path
       end
