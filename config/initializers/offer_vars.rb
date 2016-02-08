@@ -9,5 +9,5 @@ PS_TIME="#{Time.now.to_i}"
 #PUB0=campaign2
 TIMESTAMP="#{Time.now.to_i}"
 #UID=player1
-API_KEY='b07a12df7d52e6c118e5d47d3f9e60135b109a1f'
+API_KEY=''
 SERVER_URI='http://api.fyber.com/feed/v1/offers.json'
